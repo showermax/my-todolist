@@ -4,7 +4,7 @@ import { Todolist } from './Todolist';
 
 
 function App() {
-  const [listOfTasks, setListOfTasks] = useState( [
+  let [listOfTasks, setListOfTasks] = useState( [
     {id: 1, name: "go for a walk", isDone: true},
     {id: 2, name: "finish the todolist with buttons", isDone: true},
     {id: 3, name: "style the todolist", isDone: true},
@@ -23,6 +23,7 @@ function App() {
     {id: 2, name: "proceed with the hosting of hauz.tech", isDone: false},
     {id: 3, name: "deploy", isDone: false}
   ]
+
   function remove(id:number){
     setListOfTasks(listOfTasks.filter(el=>el.id!=id))
   }
@@ -34,13 +35,21 @@ function App() {
   if (check === "Done") {
     newListOfTasks = listOfTasks.filter(el=>el.isDone)
   }
-  function taskfilter(check: 'All'|"To-do"|'Done') {
+  if (check === "3") {
+    newListOfTasks = listOfTasks.filter(el=>el.id<4)
+  }
+  function taskFilter(check: 'All'|"To-do"|'Done'|'3') {
     setCheck(check)
   }
+  function deleteAll () {
+    listOfTasks=[]
+    setListOfTasks(listOfTasks)
+  }
+
 
   return (
     <div className="App">
-     <Todolist title='One' tasks={newListOfTasks} delete={remove} filtering={taskfilter}/>
+     <Todolist title='One' tasks={newListOfTasks} delete={remove} filtering={taskFilter} deleteAll={deleteAll}/>
      {/*<Todolist title='Code grabbers' tasks={listOfTasks2}/>*/}
      {/*<Todolist title='Health aging' tasks={listOfTasks3}/>*/}
     </div>
