@@ -11,14 +11,16 @@ type TasksType = {
 }
 export const Todolist = (props: PropsType) => {
     return (
-    <div>
-        <div className="header">{props.title}</div>
+    <div className = "wrapper">
+        <h2 className="header">{props.title}</h2>
         <ul>
             {props.tasks.map(el => <li key={el.id}><input type="checkbox" checked={el.isDone}/>{el.name}</li>)}
         </ul>
-        <button></button>
-        <button></button>
-        <button></button>
+        <div className="buttons">
+            <button>All</button>
+            <button>To-do</button>
+            <button>Done</button>
+        </div>
     </div>
     )
 }

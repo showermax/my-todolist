@@ -6,7 +6,24 @@
 .App > div {
   margin-right: 50px;
 }
-
+.header {
+  text-align: center;
+}
+.wrapper {
+  border: solid 2px black;
+  border-radius: 10px;
+  box-shadow: 20px;
+  width: 200px;
+  padding: 10px;
+}
+.buttons {
+  text-align: center;
+  padding:10px;
+  margin-bottom: 5px;
+}
+.buttons > button{
+  margin: 5px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
